@@ -19,3 +19,10 @@ rows.forEach(function(x) {
     var seveneth = row.append("td").text(Object.values(x)[6]);
     var eight = row.append("td").text(Object.values(x)[7]);
 });
+
+var search = d3.select("#search")
+
+//function filter_dates(datetime) {
+//}
+//function change_handler(event) {
+//}
