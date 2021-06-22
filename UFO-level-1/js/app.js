@@ -20,9 +20,13 @@ rows.forEach(function(x) {
     var eight = row.append("td").text(Object.values(x)[7]);
 });
 
-var search = d3.select("#search")
+var form = d3.select("#search");
+var button = d3.select("#button");
+form.on("change",runEnter);
 
-//function filter_dates(datetime) {
-//}
-//function change_handler(event) {
-//}
+function runEnter() {
+    d3.event.preventDefault();
+    var inputValue = form.property("value");
+    var sighting_date = rows.filter(row => Date.parse(row.date) === inputValue)
+}
+
