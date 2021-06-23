@@ -1,1 +1,5 @@
 # javascript-challenge
+
+I very much enjoyed working on this assignment. It's not exactly perfect code, but I learned a lot about how 
+inputs work, especially when it comes to the input type date. This assignment only required that we use
+.filter, which would have been much easier if I used a simple input type text and have the user manually enter MM/DD/YYYY. However, I wanted to take an extra step to show the exact dates which are targetable and make sure the user can't select a date outside of the data. In addition to this I implemented a reset button which deletes the filtered data. However, it is not necessary for the code to work since it will automatically delete any inserted data before it creates the filtered data table. I learned a lot from this assignment and I plan to continue on it make it filterable through all the data headers (ex. city, state, country, shape, etc). 

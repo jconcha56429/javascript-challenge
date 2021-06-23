@@ -13,20 +13,19 @@ indexes.forEach(function(i) {
 rows.forEach(function(x) {
     var row = html_table.append("tr");
     var date = row.append("td").text(Object.values(x)[0]);
-    var place = row.append("td").text(Object.values(x)[1]);
+    var city = row.append("td").text(Object.values(x)[1]);
     var state = row.append("td").text(Object.values(x)[2]);
-    var fourth = row.append("td").text(Object.values(x)[3]);
-    var fifth = row.append("td").text(Object.values(x)[4]);
-    var sixth = row.append("td").text(Object.values(x)[5]);
-    var seveneth = row.append("td").text(Object.values(x)[6]);
-    var eight = row.append("td").text(Object.values(x)[7]);
+    var country = row.append("td").text(Object.values(x)[3]);
+    var shape = row.append("td").text(Object.values(x)[4]);
+    var durationMinutes = row.append("td").text(Object.values(x)[5]);
+    var comments = row.append("td").text(Object.values(x)[6]);
 });
 
 var form = d3.select("#search");
 var button = d3.select("#button");
 form.on("change",runEnter);
 filtered_data = d3.select("#filter_table")
-
+button.on("click",reset)
 function runEnter() {
     d3.event.preventDefault();
     var inputValue = form.property("value");
@@ -35,30 +34,28 @@ function runEnter() {
     var month = test.getUTCMonth()+1;
     var day = test.getUTCDate();
     var year = test.getUTCFullYear();
-    date_combined = (`${month}/${day}/${year}`);
+    var date_combined = (`${month}/${day}/${year}`);
     var big_test = rows.filter(row => row.datetime === date_combined)
-    var new_body = d3.select("body")
+    document.getElementById("filter_table").innerHTML = ""
+    
+    indexes.forEach(function(i) {
+        var header = filtered_data.append("th").text(i)
+    })
     big_test.forEach(
-        function(y) {
-
-            var test1 = filtered_data.append("tr");
-            var row2 = test1.append("td").text(Object.values(y)[0]);
-            var row3 = test1.append("td").text(Object.values(y)[1]);
-            var row4 = test1.append("td").text(Object.values(y)[2]);
-            var row5 = test1.append("td").text(Object.values(y)[3]);
-            var row6 = test1.append("td").text(Object.values(y)[4]);
-            var row7 = test1.append("td").text(Object.values(y)[5]);
-            var row8 = test1.append("td").text(Object.values(y)[6]);
-            var row8 = test1.append("td").text(Object.values(y)[7]);
-
+        function(tds) {
+            var row = filtered_data.append("tr");
+            var date = row.append("td").text(Object.values(tds)[0]);
+            var city = row.append("td").text(Object.values(tds)[1]);
+            var state = row.append("td").text(Object.values(tds)[2]);
+            var country = row.append("td").text(Object.values(tds)[3]);
+            var shape = row.append("td").text(Object.values(tds)[4]);
+            var durationMinutes = row.append("td").text(Object.values(tds)[5]);
+            var comments = row.append("td").text(Object.values(tds)[6]);
         }
     
     )
     
 }
-
-//var dateString = new Date(date.getTime() - (date.getTimezoneOffset() * 60000 ))
-//.toISOString()
-//.split("T")[0];
-//console.log(Date.now())
-//console.log(new Date("2010-01-02"))
+function reset() {
+    document.getElementById("filter_table").innerHTML = ""
+}
