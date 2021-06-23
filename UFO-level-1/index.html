@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="container" id="Title">
             <h1>The Search for the Truth <br> UFO Sightings Across the United States</h1>
@@ -22,11 +23,12 @@
         </div>
     </div>
     <div class="container">
-        <input type="date" id="search"  name="sighting_date" value="2010-01-01" min="2010-01-01"  max="2010-14-01">
-        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+        <input type="date" id="search"  name="sighting_date" value="" min="2010-01-01"  max="2010-01-13">
         <button id="button" type="button">Filter by datetime</button>
     </div>
     <div class="container">
+        <table id="filter_table">
+        </table>
         <table id="main_table">
         </table>
     </div> 
